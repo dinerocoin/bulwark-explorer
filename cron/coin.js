@@ -18,9 +18,9 @@ async function syncCoin() {
   const url = `${ config.coinMarketCap.api }${ config.coinMarketCap.ticker }`;
 
   const info = await rpc.call('getinfo');
-  const masternodes = await rpc.call('getmasternodecount');
+  const masternodes = await rpc.call('masternode', ['count']);
   const nethashps = await rpc.call('getnetworkhashps');
-
+f
   let market = await fetch(url);
   if (Array.isArray(market)) {
     market = market.length ? market[0] : {};
