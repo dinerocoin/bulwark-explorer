@@ -10,5 +10,6 @@ router.get('/getdistribution', iquidus.getdistribution);
 router.get('/getaddress/:hash', iquidus.getaddress);
 router.get('/getbalance/:hash', iquidus.getbalance);
 router.get('/getlasttxs', iquidus.getlasttxs);
+router.get('/sendrawtransaction/:signedhex', iquidus.sendrawtransaction);
 
 module.exports =  router;

@@ -89,6 +89,20 @@ const getrawtransaction = async (req, res) => {
   }
 };
 
+const sendrawtransaction = async (req, res) => {
+  try {
+
+
+    const raw = req.params.signedhex
+
+    const txid = await rpc.call('sendrawtransaction', [raw]);
+    res.json({"txid":txid});
+  } catch(err) {
+    console.log(err);
+    res.status(500).send(err.message || err);
+  }
+};
+
 const getnetworkhashps = async (req, res) => {
   try {
     const coin = await getCoin();
@@ -150,5 +164,6 @@ module.exports =  {
   getdistribution,
   getaddress,
   getbalance,
-  getlasttxs
+  getlasttxs,
+  sendrawtransaction
 };
