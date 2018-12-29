@@ -1,9 +1,9 @@
 #!/bin/bash
 # Download latest node and install.
-bwklink=`curl -s https://api.github.com/repos/dinero-crypto/dinero/releases/latest | grep browser_download_url | grep linux64 | cut -d '"' -f 4`
+dinlink=`curl -s https://api.github.com/repos/dinero-crypto/dinero/releases/latest | grep browser_download_url | grep linux64 | cut -d '"' -f 4`
 mkdir -p /tmp/dinero
 cd /tmp/dinero
-curl -Lo dinero.tar.gz $bwklink
+curl -Lo dinero.tar.gz $dinlink
 tar -xzf dinero.tar.gz
 sudo mv ./bin/* /usr/local/bin
 cd
