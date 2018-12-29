@@ -118,6 +118,7 @@ Restart=on-abort
 [Install]
 WantedBy=multi-user.target
 EOL
+    sudo systemctl daemon-reload
     sudo systemctl start dinerod
     sudo systemctl enable dinerod
     echo "Sleeping for 1 hour while node syncs blockchain..."
