@@ -89,7 +89,6 @@ installMongo () {
 
 installDinero () {
     echo "Installing Dinero..."
-    dinlink=`curl -s https://api.github.com/repos/dinerocoin/dinero/releases/latest | grep browser_download_url | grep linux64 | cut -d '"' -f 4`
     mkdir -p /tmp/dinero
     cd /tmp/dinero
     curl -Lo dinero.tar.gz $dinlink
@@ -191,7 +190,7 @@ clear
 
 # Variables
 echo "Setting up variables..."
-dinlink=`curl -s https://api.github.com/repos/dinero-crypto/dinero/releases/latest | grep browser_download_url | grep linux64 | cut -d '"' -f 4`
+dinlink=`curl -s https://api.github.com/repos/dinerocoin/dinero/releases/latest | grep browser_download_url | grep linux64 | cut -d '"' -f 4`
 rpcuser=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')
 rpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
 echo "Repo: $dinlink"
