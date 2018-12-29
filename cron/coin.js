@@ -20,7 +20,7 @@ async function syncCoin() {
   const info = await rpc.call('getinfo');
   const masternodes = await rpc.call('masternode', ['count']);
   const nethashps = await rpc.call('getnetworkhashps');
-f
+
   let market = await fetch(url);
   if (Array.isArray(market)) {
     market = market.length ? market[0] : {};
