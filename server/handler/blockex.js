@@ -173,17 +173,8 @@ const getBlock = async (req, res) => {
  * @param {Object} req The request object.
  * @param {Object} res The response object.
  */
-const getCoin = (req, res) => {
-  Coin.findOne()
-    .sort({ createdAt: -1 })
-    .then((doc) => {
-      res.json(doc);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send(err.message || err);
-    });
-};
+// Get latest coin info helper method.
+const getCoin = async () => Coin.findOne().sort({ createdAt: -1 });
 
 const getCurrency = async (req, res) => {
   try {
