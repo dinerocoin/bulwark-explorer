@@ -185,6 +185,18 @@ const getCoin = (req, res) => {
     });
 };
 
+const getCurrency = async (req, res) => {
+  try {
+    const coin = await getCoin();
+    let btcUsd = coin.usd / coin.btc;
+    res.json({"status":200,"data":{"din_usd":coin.usd,"btc_usd":btcUsd,"btc_din":coin.btc}});
+  } catch(err) {
+    console.log(err);
+    res.status(500).send(err.message || err);
+  }
+};
+
+
 /**
  * Get history of coin information.
  * @param {Object} req The request object.
@@ -542,5 +554,7 @@ module.exports =  {
   getTXLatest,
   getTX,
   getTXs,
-  getTXsWeek
+  getTXsWeek,
+  // /insight-api-dinero
+  getCurrency
 };

@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 // Routes.
 const api = require('../route/api');
+const iad = require('../route/insight-api-dinero');
 const ext = require('../route/ext');
 
 /**
@@ -20,6 +21,7 @@ const router = (app) => {
 
   // Setup the api routes.
   app.use('/api', api);
+  app.use('/insight-api-dinero', iad);
   app.use('/ext', ext);
 };
 

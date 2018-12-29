@@ -124,16 +124,16 @@ class App extends Component {
     this.setState({ searches: searchHistory.add(term) });
 
     // Setup path for search.
-    let path = '/#/';
+    let path = '/insight/';
     if (isAddress(term)) {
-      document.location.href = `/#/address/${ term }`;
+      document.location.href = `/insight/address/${ term }`;
     } else if (!isNaN(term)) {
-      document.location.href = `/#/block/${ term }`;
+      document.location.href = `/insight/block/${ term }`;
     } else {
       this.props
         .getIsBlock(term)
         .then((is) => {
-          document.location.href = `/#/${ is ? 'block' : 'tx' }/${ term }`;
+          document.location.href = `/insight/${ is ? 'block' : 'tx' }/${ term }`;
         });
     }
   };

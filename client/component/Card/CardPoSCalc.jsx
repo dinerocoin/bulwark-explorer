@@ -16,7 +16,7 @@ export default class CardPoSCalc extends React.Component {
     const v = this.state.amount;
 
     if (!!v && !isNaN(v) && v > 0) {
-      document.location.href = `/#/pos/${ v }`;
+      document.location.href = `/insight/pos/${ v }`;
     } else {
       this.input.focus();
     }

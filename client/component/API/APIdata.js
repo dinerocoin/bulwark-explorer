@@ -135,23 +135,23 @@ const APIdata = [
     subHeading: 'Linking to the block explorer',
     calls: [
         {
-          name: 'Transaction (/#/tx/[hash])',
+          name: 'Transaction (/insight/tx/[hash])',
           info: 'Returns transaction information',
-          path: '/#/tx/432fb7043c4a1ef074448816cac549e103aa5e3145012dcd5251fdee2ade739a'
+          path: '/insight/tx/432fb7043c4a1ef074448816cac549e103aa5e3145012dcd5251fdee2ade739a'
         },
         {
-          name: 'Block (/#/block/[hash|height]',
+          name: 'Block (/insight/block/[hash|height]',
           info: 'Returns block information.',
-          path: '/#/block/0000018daa34677b5d52c232d5f4dc93ec19f3c99bfcf2db20d5a43fca28c5c9'
+          path: '/insight/block/0000018daa34677b5d52c232d5f4dc93ec19f3c99bfcf2db20d5a43fca28c5c9'
         },
         {
-          name: 'Address (/#/address/[hash]',
+          name: 'Address (/insight/address/[hash]',
           info: 'Returns address information.',
-          path: '/#/block/0000018daa34677b5d52c232d5f4dc93ec19f3c99bfcf2db20d5a43fca28c5c9'
+          path: '/insight/block/0000018daa34677b5d52c232d5f4dc93ec19f3c99bfcf2db20d5a43fca28c5c9'
         },
         // { name: 'qr (qr/[hash]',
         //   info: 'Returns qr code information.',
-        //   path: '/#/qr/000000000001eb792fe1ac3f901d2373509769f5179d9fe2fd3bf8cb3b6ebec9'
+        //   path: '/insight/qr/000000000001eb792fe1ac3f901d2373509769f5179d9fe2fd3bf8cb3b6ebec9'
         // },
     ]
   }

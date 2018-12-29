@@ -4,9 +4,9 @@
  */
 const config = {
   'api': {
-    'host': 'https://explorer.dinerocoin.org',
+    'host': 'https://insight.dinerocoin.org',
     'port': '443',
-    'prefix': '/api',
+    'prefix': '/insight-api-dinero',
     'timeout': '5s'
   },
   'coinMarketCap': {

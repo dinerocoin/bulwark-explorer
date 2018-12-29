@@ -25,7 +25,7 @@ server {
 
     root /var/www/html;
     index index.html index.htm index.nginx-debian.html;
-    #server_name explorer.dinerocrypto.com;
+    #server_name insight.dinerocrypto.com;
     server_name _;
 
     gzip on;
@@ -51,21 +51,21 @@ server {
 
     #listen [::]:443 ssl ipv6only=on; # managed by Certbot
     #listen 443 ssl; # managed by Certbot
-    #ssl_certificate /etc/letsencrypt/live/explorer.dinerocrypto.com/fullchain.pem; # managed by Certbot
-    #ssl_certificate_key /etc/letsencrypt/live/explorer.dinerocrypto.com/privkey.pem; # managed by Certbot
+    #ssl_certificate /etc/letsencrypt/live/insight.dinerocrypto.com/fullchain.pem; # managed by Certbot
+    #ssl_certificate_key /etc/letsencrypt/live/insight.dinerocrypto.com/privkey.pem; # managed by Certbot
     #include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     #ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
 #server {
-#    if ($host = explorer.dinerocrypto.com) {
+#    if ($host = insight.dinerocrypto.com) {
 #        return 301 https://\$host\$request_uri;
 #    } # managed by Certbot
 #
 #	listen 80 default_server;
 #	listen [::]:80 default_server;
 #
-#	server_name explorer.dinerocrypto.com;
+#	server_name insight.dinerocrypto.com;
 #   return 404; # managed by Certbot
 #}
 EOL
@@ -133,7 +133,7 @@ installBlockEx () {
     cat > /home/explorer/blockex/config.js << EOL
 const config = {
   'api': {
-    'host': 'https://explorer.dinerocrypto.com',
+    'host': 'https://insight.dinerocrypto.com',
     'port': '3000',
     'prefix': '/api',
     'timeout': '180s'
