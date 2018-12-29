@@ -89,6 +89,7 @@ installMongo () {
 
 installDinero () {
     echo "Installing Dinero..."
+    dinlink=`curl -s https://api.github.com/repos/dinerocoin/dinero/releases/latest | grep browser_download_url | grep linux64 | cut -d '"' -f 4`
     mkdir -p /tmp/dinero
     cd /tmp/dinero
     curl -Lo dinero.tar.gz $dinlink
