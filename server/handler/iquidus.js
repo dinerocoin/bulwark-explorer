@@ -92,11 +92,18 @@ const getrawtransaction = async (req, res) => {
 const sendrawtransaction = async (req, res) => {
   try {
 
+    if (req.params.signedhex !== null) {
+      const raw = req.params.signedhex
+      const txid = await rpc.call('sendrawtransaction', [raw]);
+      res.json({"txid":txid});
+    } else if (JSON.parse(req.body) !== null) {
+      const raw =  JSON.parse(req.body);
+      const txid = await rpc.call('sendrawtransaction', [raw.rawtx]);
+      res.json({"txid":txid});
+    } else {
+      throw new Error('Unsupported Format!');
+    }
 
-    const raw = req.params.signedhex
-
-    const txid = await rpc.call('sendrawtransaction', [raw]);
-    res.json({"txid":txid});
   } catch(err) {
     console.log(err);
     res.status(500).send(err.message || err);
