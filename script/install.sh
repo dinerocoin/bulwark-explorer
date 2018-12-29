@@ -93,7 +93,8 @@ installDinero () {
     cd /tmp/dinero
     curl -Lo dinero.tar.gz $dinlink
     tar -xzf dinero.tar.gz
-    sudo mv din*/bin/* /usr/local/bin
+    mkdir /home/explorer/bin
+    sudo mv din*/bin/* /home/explorer/bin
     cd
     rm -rf /tmp/dinero
     mkdir -p /home/explorer/.dinerocore
