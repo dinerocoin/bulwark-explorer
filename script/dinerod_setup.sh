@@ -5,7 +5,7 @@ mkdir -p /tmp/dinero
 cd /tmp/dinero
 curl -Lo dinero.tar.gz $dinlink
 tar -xzf dinero.tar.gz
-sudo mv ./bin/* /usr/local/bin
+sudo mv bin/* /usr/local/bin
 cd
 rm -rf /tmp/dinero
 mkdir ~/.dinerocore
