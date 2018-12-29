@@ -25,7 +25,7 @@ server {
 
     root /var/www/html;
     index index.html index.htm index.nginx-debian.html;
-    #server_name insight.dinerocrypto.com;
+    #server_name insight.dinerocoin.org;
     server_name _;
 
     gzip on;
@@ -51,21 +51,21 @@ server {
 
     #listen [::]:443 ssl ipv6only=on; # managed by Certbot
     #listen 443 ssl; # managed by Certbot
-    #ssl_certificate /etc/letsencrypt/live/insight.dinerocrypto.com/fullchain.pem; # managed by Certbot
-    #ssl_certificate_key /etc/letsencrypt/live/insight.dinerocrypto.com/privkey.pem; # managed by Certbot
+    #ssl_certificate /etc/letsencrypt/live/insight.dinerocoin.org/fullchain.pem; # managed by Certbot
+    #ssl_certificate_key /etc/letsencrypt/live/insight.dinerocoin.org/privkey.pem; # managed by Certbot
     #include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     #ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
 #server {
-#    if ($host = insight.dinerocrypto.com) {
+#    if ($host = insight.dinerocoin.org) {
 #        return 301 https://\$host\$request_uri;
 #    } # managed by Certbot
 #
 #	listen 80 default_server;
 #	listen [::]:80 default_server;
 #
-#	server_name insight.dinerocrypto.com;
+#	server_name insight.dinerocoin.org;
 #   return 404; # managed by Certbot
 #}
 EOL
@@ -91,13 +91,13 @@ installDinero () {
     echo "Installing Dinero..."
     mkdir -p /tmp/dinero
     cd /tmp/dinero
-    curl -Lo dinero.tar.gz $bwklink
+    curl -Lo dinero.tar.gz $dinlink
     tar -xzf dinero.tar.gz
     sudo mv ./bin/* /usr/local/bin
     cd
     rm -rf /tmp/dinero
-    mkdir -p /home/explorer/.dinero
-    cat > /home/explorer/.dinero/dinero.conf << EOL
+    mkdir -p /home/explorer/.dinerocore
+    cat > /home/explorer/.dinerocore/dinero.conf << EOL
 rpcport=52544
 rpcuser=$rpcuser
 rpcpassword=$rpcpassword
@@ -112,8 +112,8 @@ After=network.target
 Type=forking
 User=explorer
 WorkingDirectory=/home/explorer
-ExecStart=/home/explorer/bin/dinerod -datadir=/home/explorer/.dinero
-ExecStop=/home/explorer/bin/dinero-cli -datadir=/home/explorer/.dinero stop
+ExecStart=/home/explorer/bin/dinerod -datadir=/home/explorer/.dinerocore
+ExecStop=/home/explorer/bin/dinero-cli -datadir=/home/explorer/.dinerocore stop
 Restart=on-abort
 [Install]
 WantedBy=multi-user.target
@@ -133,7 +133,7 @@ installBlockEx () {
     cat > /home/explorer/blockex/config.js << EOL
 const config = {
   'api': {
-    'host': 'https://insight.dinerocrypto.com',
+    'host': 'https://insight.dinerocoin.org',
     'port': '3000',
     'prefix': '/api',
     'timeout': '180s'
@@ -190,10 +190,10 @@ clear
 
 # Variables
 echo "Setting up variables..."
-bwklink=`curl -s https://api.github.com/repos/dinero-crypto/dinero/releases/latest | grep browser_download_url | grep linux64 | cut -d '"' -f 4`
+dinlink=`curl -s https://api.github.com/repos/dinero-crypto/dinero/releases/latest | grep browser_download_url | grep linux64 | cut -d '"' -f 4`
 rpcuser=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')
 rpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
-echo "Repo: $bwklink"
+echo "Repo: $dinlink"
 echo "PWD: $PWD"
 echo "User: $rpcuser"
 echo "Pass: $rpcpassword"

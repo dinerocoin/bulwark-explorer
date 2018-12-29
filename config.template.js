@@ -34,7 +34,7 @@ const config = {
     'url': 'https://hooks.slack.com/services/A00000000/B00000000/somekindofhashhere',
     //'channel': '#general',
     //'username': 'Block Report',
-    //'icon_emoji': ':bwk:'
+    //'icon_emoji': ':din:'
   }
 };
 
