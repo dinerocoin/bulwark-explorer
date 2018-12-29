@@ -16,7 +16,7 @@ const Peer = mongoose.model('Peer', new mongoose.Schema({
   lat: { type: String },
   lon: { type: String },
   port: { type: Number },
-  subver: { required: true, type: String },
+  subver: { required: false, type: String },
   timeZone: { type: String },
   ver: { required: true, type: Number }
 }, { versionKey: false }), 'peers');
