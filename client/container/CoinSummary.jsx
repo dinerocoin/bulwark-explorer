@@ -66,7 +66,6 @@ class CoinSummary extends Component {
               </div>
               <div className="col-md-12 col-lg-6">
                 <CardMasternodeSummary
-                  offline={ coin.mnsOff }
                   online={ coin.mnsOn }
                   xAxis={ this.props.coins.map(c => c.createdAt) }
                   yAxis={ this.props.coins.map(c => c.mnsOn ? c.mnsOn : 0.0) } />

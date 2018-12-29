@@ -51,7 +51,6 @@ describe('API', () => {
           res.body.btc.should.be.a('number');
           res.body.cap.should.be.a('number');
           res.body.diff.should.be.a('number');
-          res.body.mnsOff.should.be.a('number');
           res.body.mnsOn.should.be.a('number');
           res.body.netHash.should.be.a('number');
           res.body.peers.should.be.a('number');
