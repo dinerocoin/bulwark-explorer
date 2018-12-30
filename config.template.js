@@ -4,7 +4,7 @@
  */
 const config = {
   'api': {
-    'host': 'https://insights.dinerocoin.org',
+    'host': 'http://insights.dinerocoin.org',
     'port': '443',
     'prefix': '/insight-api-dinero',
     'timeout': '5s'

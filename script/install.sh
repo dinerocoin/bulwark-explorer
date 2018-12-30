@@ -135,7 +135,7 @@ installBlockEx () {
     cat > /home/explorer/blockex/config.js << EOL
 const config = {
   'api': {
-    'host': 'https://insights.dinerocoin.org',
+    'host': 'http://insights.dinerocoin.org',
     'port': '3000',
     'prefix': '/api',
     'timeout': '180s'
