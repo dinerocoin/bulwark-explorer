@@ -2,7 +2,7 @@
 import Actions from './core/Actions';
 import Component from './core/Component';
 import { connect } from 'react-redux';
-import { Router, } from 'react-router-dom';
+import { Router} from 'react-router-dom';
 import { isAddress, isBlock, isTX } from '../lib/blockchain';
 import { Link, Route, Switch } from 'react-router-dom';
 import promise from 'bluebird';
