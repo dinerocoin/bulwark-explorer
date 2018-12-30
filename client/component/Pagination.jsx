@@ -52,7 +52,7 @@ export default class Pagination extends Component {
     for (let i = start; i <= end; i++) {
       pages.push(
         <li className={ `page-item ${ i === this.props.current ? ' active' : '' }` } key={ i }>
-          <a className="page-link" href="#" onClick={ (ev) => this.handlePage(ev, i) }>
+          <a className="page-link" href="insight" onClick={ (ev) => this.handlePage(ev, i) }>
             { i }
           </a>
         </li>
@@ -62,23 +62,23 @@ export default class Pagination extends Component {
     return (
       <ul className={ `pagination${ this.props.className ? ` ${ this.props.className }` : '' }` }>
         <li className="page-item">
-          <a className="page-link" href="#" onClick={ (ev) => this.handlePage(ev, 1) }>
+          <a className="page-link" href="insight" onClick={ (ev) => this.handlePage(ev, 1) }>
             <Icon name="angle-double-left" />
           </a>
         </li>
         <li className="page-item">
-          <a className="page-link" href="#" onClick={ this.handleNewer }>
+          <a className="page-link" href="insight" onClick={ this.handleNewer }>
             <Icon name="angle-left" />
           </a>
         </li>
         { pages }
         <li className="page-item">
-          <a className="page-link" href="#" onClick={ this.handleOlder }>
+          <a className="page-link" href="insight" onClick={ this.handleOlder }>
             <Icon name="angle-right" />
           </a>
         </li>
         <li className="page-item">
-          <a className="page-link" href="#" onClick={ (ev) => this.handlePage(ev, this.props.total) }>
+          <a className="page-link" href="insight" onClick={ (ev) => this.handlePage(ev, this.props.total) }>
             <Icon name="angle-double-right" />
           </a>
         </li>

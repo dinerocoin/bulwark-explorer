@@ -24,7 +24,7 @@ class Top100 extends Component {
     super(props);
     this.state = {
       cols: [
-        { key: 'index', title: '#' },
+        { key: 'index', title: 'insight' },
         { key: 'address', title: 'Address' },
         { key: 'value', title: 'Total' },
         { key: 'percent', title: '%' },
