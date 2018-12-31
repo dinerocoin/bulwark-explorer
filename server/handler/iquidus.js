@@ -92,23 +92,31 @@ const getrawtransaction = async (req, res) => {
 const sendrawtransaction = async (req, res) => {
   try {
 
-    if (req.params.signedhex !== null) {
-      const raw = req.params.signedhex
-      const txid = await rpc.call('sendrawtransaction', [raw]);
-      res.json({"txid":txid});
-    } else if (JSON.parse(req.body) !== null) {
       const raw =  JSON.parse(req.body);
       const txid = await rpc.call('sendrawtransaction', [raw.rawtx]);
       res.json({"txid":txid});
-    } else {
-      throw new Error('Unsupported Format!');
-    }
 
   } catch(err) {
     console.log(err);
     res.status(500).send(err.message || err);
   }
 };
+
+const sendrawtransactionix = async (req, res) => {
+  try {
+
+
+      const raw =  JSON.parse(req.body);
+      let options = {allowAbsurdFees: false, isInstantSend: true};
+      const txid = await rpc.call('sendrawtransaction', [raw.rawtx, options]);
+      res.json({"txid":txid});
+
+  } catch(err) {
+    console.log(err);
+    res.status(500).send(err.message || err);
+  }
+};
+
 
 const getnetworkhashps = async (req, res) => {
   try {
@@ -172,5 +180,6 @@ module.exports =  {
   getaddress,
   getbalance,
   getlasttxs,
-  sendrawtransaction
+  sendrawtransaction,
+  sendrawtransactionix
 };
