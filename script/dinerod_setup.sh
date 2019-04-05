@@ -21,4 +21,4 @@ txindex=1
 EOL
 
 # Start node.
-dinerod
+dinerocore-1.0.1/bin/dinerod -daemon
